@@ -1,8 +1,8 @@
 package com.pos.account.model;
 
+import java.awt.Image;
 import java.math.BigDecimal;
 import java.sql.Date;
-import javafx.scene.image.Image;
 
 
 
@@ -14,103 +14,135 @@ public class Attendant {
 	 private String mName;
 	 private String surname;
 	 private String gender;
-	 private Date   dob;
+	 private String   dob;
 	 private String address; 
 	 private String phoneNo; 
 	 private String email; 
 	 private  Date   doe; 
 	 private Image image;
+     private String position;
+     private String cacheId = "USER";
+		 
+		
+
 	 
-	 private String cacheId = "USER";
 	 
 	 
-	 public String getCacheId() {
-		return cacheId;
+	 public Attendant() {
+		 
+	 }
+	 
+	 public Attendant(BigDecimal id, String fName, String mName, String surname, String gender, String dob,
+			String address, String phoneNo, String email, Date doe, Image image, String position) {
+		super();
+		this.id = id;
+		this.fName = fName;
+		this.mName = mName;
+		this.surname = surname;
+		this.gender = gender;
+		this.dob = dob;
+		this.address = address;
+		this.phoneNo = phoneNo;
+		this.email = email;
+		this.doe = doe;
+		this.image = image;
+		this.position = position;
 	}
-	public void setCacheId(String cacheId) {
-		this.cacheId = cacheId;
-	}
+
+
+
 	public Date getDoe() {
 		return doe;
 	}
-	private String position;
-	 
 	
-		
 	public BigDecimal getId() {
 		return id;
 	}
-	public void setId(BigDecimal id) {
+	public Attendant setId(BigDecimal id) {
 		this.id = id;
+		return this;
 	}
 	public String getfName() {
 		return fName;
 	}
-	public void setfName(String fName) {
+	public Attendant setfName(String fName) {
 		this.fName = fName;
+		return this;
 	}
 	public String getmName() {
 		return mName;
 	}
-	public void setmName(String mName) {
+	public Attendant setmName(String mName) {
 		this.mName = mName;
+		return this;
 	}
 	public String getSurname() {
 		return surname;
 	}
-	public void setSurname(String surname) {
+	public Attendant setSurname(String surname) {
 		this.surname = surname;
+		return this;
 	}
 	public String getGender() {
 		return gender;
 	}
-	public void setGender(String gender) {
+	public Attendant setGender(String gender) {
 		this.gender = gender;
+		return this;
 	}
 	
-	public  Date getDob() {
+	public  String getDob() {
 		return dob;
 	}
-	public void setDob(Date dob) {
+	public Attendant setDob(String dob) {
 		this.dob = dob;
+		return this;
 	}
-	public void setDoe(Date doe) {
+	public Attendant setDoe(Date doe) {
 		this.doe = doe;
+		return this;
 	}
 	public String getAddress() {
 		return address;
 	}
-	public void setAddress(String address) {
+	public Attendant setAddress(String address) {
 		this.address = address;
+		return this;
 	}
 	public String getPhoneNo() {
 		return phoneNo;
 	}
-	public void setPhoneNo(String phoneNo) {
+	public Attendant setPhoneNo(String phoneNo) {
 		this.phoneNo = phoneNo;
+		return this;
 	}
 	public String getEmail() {
 		return email;
 	}
-	public void setEmail(String email) {
+	public Attendant setEmail(String email) {
 		this.email = email;
+		return this;
 	}
 	
 	public String getPosition() {
 		return position;
 	}
-	public void setPosition(String position) {
+	public Attendant setPosition(String position) {
 		this.position = position;
+		return this;
 	}
 	public Image getImage() {
 		return image;
 	}
-	public void setImage(Image image) {
+	public Attendant setImage(Image image) {
 		this.image = image;
+		return this;
 	}
 
 	
-	
+	public Attendant BuildAttendant() {
+		
+		return new Attendant( id, fName, mName,  surname, gender, dob,
+				 address,  phoneNo,  email, doe,  image, position);
+	}
 }
-
-	
