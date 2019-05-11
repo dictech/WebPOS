@@ -23,7 +23,7 @@
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>CreateAttendantCtrl</servlet-name>
-  	<url-pattern>/CreateAttendantCtrl</url-pattern>
+  	<url-pattern>/AttendantCtrl</url-pattern>
   </servlet-mapping>
 
 </web-app>

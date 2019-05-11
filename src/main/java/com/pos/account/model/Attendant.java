@@ -1,6 +1,5 @@
 package com.pos.account.model;
 
-import java.awt.Image;
 import java.math.BigDecimal;
 import java.sql.Date;
 
@@ -14,12 +13,11 @@ public class Attendant {
 	 private String mName;
 	 private String surname;
 	 private String gender;
-	 private String   dob;
+	 private Date   dob;
 	 private String address; 
 	 private String phoneNo; 
 	 private String email; 
 	 private  Date   doe; 
-	 private Image image;
      private String position;
      private String cacheId = "USER";
 		 
@@ -32,8 +30,8 @@ public class Attendant {
 		 
 	 }
 	 
-	 public Attendant(BigDecimal id, String fName, String mName, String surname, String gender, String dob,
-			String address, String phoneNo, String email, Date doe, Image image, String position) {
+	 public Attendant(BigDecimal id, String fName, String mName, String surname, String gender, Date dob,
+			String address, String phoneNo, String email, Date doe, String position) {
 		super();
 		this.id = id;
 		this.fName = fName;
@@ -45,7 +43,6 @@ public class Attendant {
 		this.phoneNo = phoneNo;
 		this.email = email;
 		this.doe = doe;
-		this.image = image;
 		this.position = position;
 	}
 
@@ -91,10 +88,10 @@ public class Attendant {
 		return this;
 	}
 	
-	public  String getDob() {
+	public  Date getDob() {
 		return dob;
 	}
-	public Attendant setDob(String dob) {
+	public Attendant setDob(Date dob) {
 		this.dob = dob;
 		return this;
 	}
@@ -131,18 +128,11 @@ public class Attendant {
 		this.position = position;
 		return this;
 	}
-	public Image getImage() {
-		return image;
-	}
-	public Attendant setImage(Image image) {
-		this.image = image;
-		return this;
-	}
 
 	
 	public Attendant BuildAttendant() {
 		
 		return new Attendant( id, fName, mName,  surname, gender, dob,
-				 address,  phoneNo,  email, doe,  image, position);
+				 address,  phoneNo,  email, doe, position);
 	}
 }

@@ -17,13 +17,15 @@ public class Database {
 	static String dbUrl = "jdbc:mysql://localhost:3306/POSv2";
 	static String dbUsername = "root";
 	static String dbPassword = "esthermylove";
-
+    static String registerDriver = "com.mysql.cj.jdbc.Driver";
 	static Connection conn = null;
 	static PreparedStatement stmt;
 	
 	public static Connection getDatabaseConnection() {
 				
 		try {
+			
+			Class.forName(registerDriver);
 			conn = DriverManager.getConnection(dbUrl,dbUsername,dbPassword);
 		}catch(Exception e) {
 			System.out.println(e);
@@ -35,6 +37,7 @@ public class Database {
 	public static PreparedStatement getConnectedPreparedStatement(String sql) {
 		
 		try {
+			Class.forName(registerDriver);
 		    conn = DriverManager.getConnection(dbUrl,dbUsername,dbPassword);
 			stmt = conn.prepareStatement(sql);
 

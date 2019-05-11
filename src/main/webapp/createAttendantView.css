@@ -4,6 +4,7 @@ label{
 	color: #008080;}
 	
 
+
 .form{
 	
 	width: 900px;
@@ -11,7 +12,7 @@ label{
 	margin: 5px 5px 50px 10px;
 	border: 2px solid #fff; 
 	padding: 15px 5px 5px 5px;
-	font-family: cursive;}
+	}
 	
 .leb-design{
 	
@@ -44,13 +45,13 @@ label{
 	color: #008080;
 	position: absolute;
 	top: 305px;
-	left: 152px;
+	left: 678px;
 	z-index: 1;}
 	
 #emailIcon{
 	color: #008080;
 	position: absolute;
-	top: 477px;
+	top: 549px;
 	left: 152px;
 	z-index: 1;}
 	
@@ -64,7 +65,7 @@ label{
 #positionIcon{
 	color: #008080;
 	position: absolute;
-	top: 562px;
+	top: 635px;
 	left: 152px;
 	z-index: 1;}
 		
@@ -78,14 +79,14 @@ label{
 #userNameIcon{
 	color: #008080;
 	position: absolute;
-	top: 649px;
+	top: 721px;
 	left: 152px;
 	z-index: 1;}
 	
 #passwordIcon{
 	color: #008080;
 	position: absolute;
-	top: 649px;
+	top: 721px;
 	left: 502px;
 	z-index: 1;}
 	

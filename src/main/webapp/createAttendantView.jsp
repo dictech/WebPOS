@@ -9,7 +9,7 @@
   <meta name="author" content="">
 
   <title>Attendant</title>
-
+  
   <!-- Bootstrap core CSS -->
   <link href="bootstrap-4.3.1/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- fontAwsome CDN link -->
@@ -20,6 +20,7 @@
   <!-- Custom styles for this template -->
   <link href="bootstrap-4.3.1/css/shop-homepage.css" rel="stylesheet">
   <link href="createAttendantView.css" rel="stylesheet" >
+  <link rel="shortcut icon" type="text/x-icon" href="images/posv2Logo3.png">
 
 </head>
 
@@ -34,7 +35,7 @@
   <div class="container">
 
     <div class="row">
-
+ 
       <div class="col-lg-3">
          <div id="sidebar">
           <%@ include file="/include/common/sideBar.jspf" %>
@@ -49,7 +50,7 @@
 
       <div class="form">
       
-             <form action="" method="post" style="width: 670px; margin:auto;">
+             <form action="AttendantCtrl" method="post" style="width: 670px; margin:auto;">
                 
                 <i class="fas fa-user" id="firstNameIcon"></i>
                 <i class="fas fa-user" id="lastNameIcon"></i>
@@ -57,7 +58,7 @@
                 <i class="fas fa-address-card" id="addressIcon"></i>
                 <i class="fas fa-envelope" id="emailIcon"></i>
                 <i class="fas fa-phone" id="phoneIcon"></i>
-                <i class="fas fa-genderless" id="genderIcon"></i>
+                <i class="fas fa-mars" id="genderIcon"></i>
                 <i class="fas fa-briefcase" id="positionIcon"></i>
                 <i class="fas fa-user-circle" id="userNameIcon"></i>
                 <i class="fas fa-key" id="passwordIcon"></i>
@@ -74,14 +75,14 @@
              <div class="col">                 
               <div class="form-group">
                <label for="firstName">FirstName<span class="leb-design">*</span></label>
-               <input type="text" name="firstName" class="form-control" style="padding-left: 40px;"/>
+               <input type="text" name="firstName" class="form-control" style="padding-left: 40px;" required/>
               </div>
              </div>
              
               <div class="col">
                <div class="form-group">
                <label for="lastName">LastName<span class="leb-design">*</span></label>
-               <input type="text" name="lastName" class="form-control" style="padding-left: 40px;"/>
+               <input type="text" name="lastName" class="form-control" style="padding-left: 40px;" required/>
                </div>
               </div>
                 
@@ -92,47 +93,54 @@
               <div class="col">
                <div class="form-group">
                <label for="middleName">MiddleName<span class="leb-design">*</span></label> 
-               <input type="text" name="middleName" class="form-control" style="padding-left: 40px;">
+               <input type="text" name="middleName" class="form-control" style="padding-left: 40px;" required>
               </div>
              </div> 
              
               <div class="col">
                 <div class="form-group">
                   <label for="phone">Phone<span class="leb-design">*</span></label>
-                  <input type="text" name="phone" class="form-control" style="padding-left: 40px;"/>
+                  <input type="text" name="phone" class="form-control" style="padding-left: 40px;" required/>
                 </div>
               </div>
              </div>
              
-            <div class="row">
-             
-              <div class="col">
-               <div class="form-group">
-               <label for="gender">Gender<span class="leb-design">*</span></label> 
-                <select name="gender" class="form-control" style="padding-left: 40px;">
-                <option></option>
-                <option>Male</option>
-                <option>Female</option>
-               </select>
-              </div>
-             </div> 
+            <div class="row"> 
              
               <div class="col">
                 <div class="form-group">
                   <label for="dob">Date of birth<span class="leb-design">*</span></label>
-                  <input type="date" name="dob" class="form-control" />
+                  <input type="date" name="dob" class="form-control" required/>
                 </div>
               </div>
+              
+              <div class="col-3">
+               <div class="form-group">
+               <label for="gender">Gender<span class="leb-design">*</span></label> 
+                <select name="gender" class="form-control" style="padding-left: 40px;" required>
+                <option selected></option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+               </select>
+              </div>
+             </div>
              </div>
              
-              <div class="form-group">
+              <div class="row">
+               <div class="col">
+                <div class="form-group">
                <label for="address">Address<span class="leb-design">*</span></label>
-               <input type="text" name="address" class="form-control" style="padding-left: 40px;"/>
+               <textarea name="address" class="form-control" rows="4" cols="1" style="padding-left: 40px;" required>
+               </textarea>
               </div>
+               </div>
                
-              <div class="form-group">
+                <div class="col"></div>
+              </div>
+              
+               <div class="form-group">
                <label for="email">Email<span class="leb-design">*</span></label> 
-               <input type="text" name="email" class="form-control"  style="padding-left: 40px;"/>
+               <input type="email" name="email" class="form-control"  style="padding-left: 40px;" required/>
                </div>
                
             <div class="row">
@@ -140,18 +148,18 @@
               <div class="col">
                <div class="form-group">
                <label for="position">Position<span class="leb-design">*</span></label> 
-                <select name="position" class="form-control" style="padding-left: 40px;">
+                <select name="position" class="form-control" style="padding-left: 40px;" required>
                 <option></option>
                 <option>Attendant</option>
                 <option>Manager</option>
                </select>
-              </div>
+               </div>
              </div> 
              
               <div class="col">
                 <div class="form-group">
                   <label for="doe">Date of employment</label>
-                  <p class="form-control" ><%= new java.util.Date() %></p>
+                  <p class="form-control"><%= new java.util.Date() %></p>
                 </div>
               </div>
              </div>
@@ -162,14 +170,14 @@
               <div class="col">
                <div class="form-group">
                <label for="username">UserName<span class="leb-design">*</span></label> 
-                <input type="text" name="userName" class="form-control" style="padding-left: 40px;"/>
+                <input type="text" name="userName" class="form-control" style="padding-left: 40px;" required/>
               </div>
              </div> 
              
               <div class="col">
                 <div class="form-group">
                   <label for="password">Password<span class="leb-design">*</span></label>
-                  <input type="password" name="password" class="form-control" style="padding-left: 40px;"/>
+                  <input type="password" name="password" class="form-control" style="padding-left: 40px;" required/>
                 </div>
               </div>
              </div><br>
@@ -182,7 +190,6 @@
              <br><br>
              <input type="submit" value="Continue" class="btn btn-outline-secondary" style="font-weight: bold; font-family: georgia;">
           </form>
-      
       
       
       
