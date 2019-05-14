@@ -22,7 +22,7 @@
 
   <!-- Navigation -->
   <div id="nav">
-    <%@ include file="/include/common/nav.jspf" %>
+    <jsp:include page="/include/common/nav.jsp" />
   </div>
 
   <!-- Page Content -->
@@ -32,7 +32,7 @@
 
       <div class="col-lg-3">
          <div id="sidebar">
-          <%@ include file="/include/common/sideBar.jspf" %>
+          <jsp:include page="/include/common/sideBar.jsp" />
          </div>
       </div> 
 
@@ -180,7 +180,7 @@
 
   <!-- Footer -->
   <div id="footer">
-    <%@ include file="/include/common/footer.jspf" %>
+    <jsp:include page="/include/common/footer.jsp" />
   </div>
 
   <!-- Bootstrap core JavaScript -->
