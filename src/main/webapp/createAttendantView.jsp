@@ -19,7 +19,7 @@
 
   <!-- Custom styles for this template -->
   <link href="bootstrap-4.3.1/css/shop-homepage.css" rel="stylesheet">
-  <link href="createAttendantView.css" rel="stylesheet" >
+  <link href="account.css" rel="stylesheet" >
   <link rel="shortcut icon" type="text/x-icon" href="images/posv2Logo3.png">
 
 </head>
