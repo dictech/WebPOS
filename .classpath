@@ -19,23 +19,22 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="C:/Users/uwem/Documents/dev/devTools/guava lib/guava-27.0.1-jre.jar"/>
 	<classpathentry kind="lib" path="C:/Users/uwem/Documents/dev/devTools/guava lib/guava-gwt-27.0.1-jre.jar"/>
 	<classpathentry kind="lib" path="C:/Users/uwem/Documents/dev/devTools/Apache/commons-lang3-3.8.1/commons-lang3-3.8.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/uwem/Documents/dev/devTools/Apache/commons-lang3-3.8.1/commons-lang3-3.8.1-javadoc.jar"/>
 	<classpathentry kind="lib" path="C:/Users/uwem/Documents/dev/devTools/Apache/commons-lang3-3.8.1/commons-lang3-3.8.1-sources.jar"/>
 	<classpathentry kind="lib" path="C:/Users/uwem/Documents/dev/devTools/Apache/commons-lang3-3.8.1/commons-lang3-3.8.1-tests.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v8.5">
+	<classpathentry kind="lib" path="C:/Users/uwem/Documents/dev/devTools/mysql-connector-java-8.0.12/mysql-connector-java-8.0.12.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v8.5 (2)">
 		<attributes>
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_191">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_191">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/uwem/Documents/dev/devTools/mysql-connector-java-8.0.12/mysql-connector-java-8.0.12.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

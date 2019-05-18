@@ -44,6 +44,35 @@ public class AttendantDAO {
             	           return attendant;
                     }
 	       // the above logic creates an attendant and sends data to database.
+
+			public static Attendant getAttendant(BigDecimal attendantID) throws Exception{
+				  Attendant attd = new Attendant();
+				    String sql = "SELECT * FROM posv2.attendant "
+				    		+ " WHERE attdt_id = ?";
+				    PreparedStatement preparedStatement  = Database.getConnectedPreparedStatement(sql);
+				    preparedStatement.setBigDecimal(1, attendantID);
+				    ResultSet rs = preparedStatement.executeQuery();
+				     if(rs.next()) {
+				    	 
+				    	  attd.setId(rs.getBigDecimal(1))
+				    	  .setfName(rs.getString(2))
+				    	  .setmName(rs.getString(3))
+				    	  .setSurname(rs.getString(4))
+				    	  .setGender(rs.getString(5))
+				    	  .setDob(rs.getDate(6))
+				    	  .setAddress(rs.getString(7))
+				    	  .setPhoneNo(rs.getString(8))
+				    	  .setEmail(rs.getString(9))
+				    	  .setDoe(rs.getDate(10))
+				    	  .setPosition(rs.getString(11))
+				    	  .BuildAttendant();
+				    	  
+				     }else {
+				    	 
+				    	     System.out.println("no id found in the database !");
+				     }
+				return attd;
+			}
 	
 			
 			

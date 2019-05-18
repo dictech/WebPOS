@@ -52,8 +52,9 @@ public class SystemAccount {
 
 
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public String setUserName(String userName) {
+		return this.userName = userName;
+		
 	}
 
 
@@ -64,8 +65,8 @@ public class SystemAccount {
 
 
 
-	public void setPassword(String password) {
-		this.password = password;
+	public String setPassword(String password) {
+		return this.password = password;
 	}
 
 

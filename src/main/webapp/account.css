@@ -94,7 +94,8 @@ label{
 	
 	/* login */
 	
-	.titleLogo{
+	
+.titleLogo{
 	
 	width: 310px;
 	height: 190px;
@@ -110,7 +111,7 @@ label{
 	height: 310px;
 	padding: 0px;
 	line-height: 30px;
-	margin: 10px 0px 0px 495px;
+	margin: 12px 0px 0px 495px;
 	padding: 0px;}
 	
 .form-inputs-login{
@@ -121,6 +122,7 @@ label{
 	border-radius: 30px;
 	background-color: none;
 	color: #008080;
+	border: 1px solid #008080;
 	margin: 15px 0px 0px 0px;
 	padding: 0px 0px 0px 41px;
 	font-family: georgia;

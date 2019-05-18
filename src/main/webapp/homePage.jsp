@@ -12,7 +12,7 @@
 
   <!-- Bootstrap core CSS -->
   <link href="bootstrap-4.3.1/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+  <link rel="shortcut icon" type="text/x-icon" href="images/posv2Logo3.png">
   <!-- Custom styles for this template -->
   <link href="bootstrap-4.3.1/css/shop-homepage.css" rel="stylesheet">
 

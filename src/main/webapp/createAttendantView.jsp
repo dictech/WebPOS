@@ -28,7 +28,7 @@
 
   <!-- Navigation -->
   <div id="nav">
-    <%@ include file="/include/common/nav.jspf" %>
+    <%@ include file="/include/common/nav.jsp" %>
   </div>
 
   <!-- Page Content -->
@@ -207,7 +207,7 @@
 
   <!-- Footer -->
   <div id="footer">
-    <%@ include file="/include/common/footer.jspf" %>
+    <%@ include file="/include/common/footer.jsp" %>
   </div>
 
   <!-- Bootstrap core JavaScript -->
