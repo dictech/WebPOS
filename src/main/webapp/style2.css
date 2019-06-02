@@ -1,0 +1,33 @@
+.showBorder{
+	border:1px dotted grey;
+}
+
+.column{
+	width: 40%;
+}
+
+header{
+	width: 100%;
+}
+
+article{
+	width: 100%;
+}
+
+#column1{
+}
+
+#column2{
+}
+
+aside{
+	width:20%;
+}
+
+footer{
+	width:100%;
+}
+
+.footer_col{
+	width:25%;
+}
