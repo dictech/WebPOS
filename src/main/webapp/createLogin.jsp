@@ -21,9 +21,12 @@
 </head>
 
 <body class="lg-body">
-    
+
  <span class="animated zoomIn delay-1s" id="userNameIcon-login"><i class="fas fa-user  fa-1x" ></i></span>
  <span class="animated zoomIn delay-1s" id="passwordIcon-login"><i class="fas fa-key  fa-1x" ></i></span>
+ <div style="position: absolute; top: 437px; left: 515px; z-index: 1; width:270px; height:25px; border:none; color:red; font-size:78%;" >
+
+ </div>
  
   <div class="animated zoomIn 5s">
   <div class="titleLogo" align="center">             
@@ -31,8 +34,9 @@
   </div>
                  
    <form action="loginAttendant" method="GET" class="formContainer">
+     
    <div>
-   <input type="text" name="loginUserName" class="form-inputs-login" placeholder="Username" required > <small style="position: absolute; top: 198px; left: 570px; color: red;"></small>              
+   <input type="text" name="loginUserName" class="form-inputs-login" placeholder="Username" required />              
    </div>
   
    <div>
@@ -40,7 +44,7 @@
    </div>    
    
    <div>
-   <input type="submit" class="submit-login" value="submit">               
+   <input type="submit" class="submit-login" value="submit" />               
    </div>      
   </form>   
   </div>

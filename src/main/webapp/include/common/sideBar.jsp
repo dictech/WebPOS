@@ -33,6 +33,7 @@
   	  <div class="list-group list-group-flush collapse" id="setupSubSystemList">
 		  <a href="createShop.jsp" class="list-group-item">Shop details</a>
 		  <a href="#" class="list-group-item">Branch details</a>
+		  <a href="createAttendantView.jsp" class="list-group-item">Attendant details</a>
 	  </div>
 
 </div>

@@ -16,21 +16,24 @@ import com.pos.account.model.SystemAccountDAO;
  */
 public class CreateLoginCtrl extends HttpServlet {
 private static final long serialVersionUID = 1L;
-
+private boolean isValid;
 	  
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
      
       String userName = request.getParameter("loginUserName");
       String password = request.getParameter("loginPassword");
+      
 
        try {
     	   SystemAccountDAO.loginSystemAccount(userName,password); 
-    	   if(SystemAccountDAO.isValidationCheck()) {
+    	   isValid = SystemAccountDAO.isValidationCheck();
+    	   
+    	   if(isValid) {
       RequestDispatcher rd = request.getRequestDispatcher("/homePage.jsp");
       rd.forward(request, response);
+      
     	   }else {
-    		    Writer out = response.getWriter();
-    		    out.append("wrong details !");
+    		  System.out.println("error");
     	   }
        }catch(Exception e) {
     	   e.getMessage();

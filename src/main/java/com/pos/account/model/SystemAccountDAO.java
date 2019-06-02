@@ -17,7 +17,7 @@ public class SystemAccountDAO {
 	private static PreparedStatement ps;
 	private static ResultSet rs;
 	private static boolean validationCheck;
-	    
+	private static final Date date = Date.valueOf(LocalDate.now());    
 	  
 
 	public static boolean isValidationCheck() {
@@ -32,7 +32,7 @@ public class SystemAccountDAO {
 
 		     
 		     String sql = " INSERT INTO posv2.account (acct_id, acct_attdt_id, acct_username, acct_password)"
-		     		      + " value(?,?,?,?)";
+		     		      + " values(?,?,?,?)";
 		     
 		        cnt = Database.getDatabaseConnection();
 		        ps = cnt.prepareStatement(sql);
@@ -56,28 +56,24 @@ public class SystemAccountDAO {
 	          ps = Database.getConnectedPreparedStatement(sql);
 	          ps.setString(1, systemAccount.setUserName(userName));
 	          ps.setString(2, systemAccount.setPassword(password));
+	          ps.execute();
 	          rs = ps.executeQuery();
 	          
 	          
 	               if(rs.next()) {
+	        	    
 	        	    Attendant attendant = AttendantDAO.getAttendant(rs.getBigDecimal(1));
 	        	    SystemAccountDAO.setValidationCheck(true);
 	        	    System.out.println(attendant.getId());
 	        	    
-	        	     Attendance attendance = new Attendance();
-	        	     attendance.setAttenc_ID(attendance.getAttenc_ID());
-	        	     attendance.setAttenc_attendt_Id(attendant.getId());
-	        	     attendance.setAttendcFirstName(attendant.getfName());
-	        	     attendance.setAttendcLastName(attendant.getSurname());
-	        	     attendance.setDate(Date.valueOf(LocalDate.now()));
-	        	     attendance.setSignInTime(Time.valueOf(LocalTime.now()));
-	        	     AttendanceDAO.CreateAttendance(Date.valueOf(LocalDate.now()));
-
+	        	    AttendanceDAO.getAttendance(SystemAccountDAO.date,attendant);
 	        	       
 	          }else {
 	        	   
 	        	  SystemAccountDAO.setValidationCheck(false);
 	          }
+	         ps.close();
+	         rs.close();
 	         
 		return systemAccount;
 	}

@@ -40,10 +40,13 @@ public class AttendantDAO {
             	        		   System.out.println(attendant.getId());
             	        		    
             	        	   }else {System.out.println("can not find : attendant id "+attendant.getId());}
-            	           
+            	            ps.close();
+            	            rs.close();
+            	            connection.close();
             	           return attendant;
                     }
-	       // the above logic creates an attendant and sends data to database.
+			
+	     
 
 			public static Attendant getAttendant(BigDecimal attendantID) throws Exception{
 				  Attendant attd = new Attendant();
@@ -71,8 +74,8 @@ public class AttendantDAO {
 				    	 
 				    	     System.out.println("no id found in the database !");
 				     }
-				return attd;
-			}
+				            return attd;
+			         }
 	
 			
 			
