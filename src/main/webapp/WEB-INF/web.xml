@@ -16,6 +16,12 @@
   	<description></description>
   	<servlet-class>com.pos.account.controller.CreateAttendantCtrl</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>CreateLoginCtrl</servlet-name>
+  	<display-name>CreateLoginCtrl</display-name>
+  	<description></description>
+  	<servlet-class>com.pos.account.controller.CreateLoginCtrl</servlet-class>
+  </servlet>
 
   <servlet-mapping>
   	<servlet-name>OrgServlet</servlet-name>
@@ -24,6 +30,10 @@
   <servlet-mapping>
   	<servlet-name>CreateAttendantCtrl</servlet-name>
   	<url-pattern>/AttendantCtrl</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CreateLoginCtrl</servlet-name>
+  	<url-pattern>/loginAttendant</url-pattern>
   </servlet-mapping>
 
 </web-app>
