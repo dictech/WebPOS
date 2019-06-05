@@ -1,0 +1,12 @@
+<<<<<<< HEAD
+target
+pom.xml
+=======
+/target/
+>>>>>>> 39ca26cc32999373b33b257e48e605491317b508
+pom.properties
+pom.properties.orig
+pom.xml.orig
+MANIFEST.MF
+/.classpath
+/.project
