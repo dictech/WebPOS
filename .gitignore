@@ -1,5 +1,8 @@
 target
+pom.xml
 pom.properties
 pom.properties.orig
 pom.xml.orig
 MANIFEST.MF
+/.classpath
+/.project
