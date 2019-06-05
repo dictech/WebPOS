@@ -5,12 +5,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.pos.database.Database;
 
 
 public class AttendantDAO {
-
 
 
 			public static Attendant createNewAttendant(Attendant attendant) throws Exception {
@@ -47,7 +48,6 @@ public class AttendantDAO {
                     }
 			
 	     
-
 			public static Attendant getAttendant(BigDecimal attendantID) throws Exception{
 				  Attendant attd = new Attendant();
 				    String sql = "SELECT * FROM posv2.attendant "
@@ -78,6 +78,33 @@ public class AttendantDAO {
 			         }
 	
 			
-			
+			   public static List<Attendant> getAllAttendants() throws Exception{
+				   
+				    List<Attendant> getAllWorkers = new ArrayList<Attendant>();
+				   
+				        Statement statement = Database.getDatabaseConnection().createStatement();
+				        ResultSet rs = statement.executeQuery("SELECT * FROM posv2.attendant");
+				         while(rs.next())
+				         {
+				        	 Attendant attendant = new Attendant()
+				        	   .setfName(rs.getString(2))
+				        	   .setmName(rs.getString(3))
+				        	   .setSurname(rs.getString(4))
+				        	   .setGender(rs.getString(5))
+				        	   .setDob(rs.getDate(6))
+				        	   .setAddress(rs.getString(7))
+				        	   .setPhoneNo(rs.getString(8))
+				        	   .setEmail(rs.getString(9))
+				        	   .setDoe(rs.getDate(10))
+				        	   .setPosition(rs.getString(11))
+				        	   .BuildAttendant();
+				        	 
+				        	   getAllWorkers.add(attendant);
+				         }
+				         
+				    
+				    
+				    return getAllWorkers;
+			   }
 			
         }

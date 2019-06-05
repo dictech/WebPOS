@@ -17,7 +17,6 @@
   <link href="bootstrap-4.3.1/css/shop-homepage.css" rel="stylesheet">
 
 </head>
-
 <body>
 
   <!-- Navigation -->

@@ -19,7 +19,6 @@ public class Attendant {
 	 private String email; 
 	 private  Date   doe; 
      private String position;
-     private String cacheId = "USER";
 		 
 		
 
