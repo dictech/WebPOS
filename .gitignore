@@ -1,5 +1,5 @@
-target
 pom.xml
+/target/
 pom.properties
 pom.properties.orig
 pom.xml.orig

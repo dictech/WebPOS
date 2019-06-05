@@ -28,6 +28,18 @@
 	  </div>
 
   <a href="#" 
+     class="list-group-item" 
+  	 data-toggle="collapse" 
+  	 data-target="#salesSubSystemList" 
+  	 aria-expanded="false" 
+  	 aria-controls="salesSubSystemList">PAYMENT</a>
+	  <div class="list-group list-group-flush collapse" id="paymentSubSystemList">
+		  <a href="#" class="list-group-item">SALES</a>
+		  <a href="#" class="list-group-item">INVENTORY</a>
+		  <a href="#" class="list-group-item">SYSTEM SETUPS</a>
+	  </div>
+
+  <a href="#" 
      class="list-group-item"
      data-toggle="collapse"
      data-target="#inventorySubSystemList"
