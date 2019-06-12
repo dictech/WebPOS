@@ -5,6 +5,7 @@ import java.io.Writer;
 import java.sql.Date;
 import java.time.LocalDate;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -78,10 +79,8 @@ private static final long serialVersionUID = 1L;
 		  systemAccount.setUserName(userName);
 		  SystemAccountDAO.createSystemAccount(systemAccount);
 		  
-		  
-		  Writer out = response.getWriter();
-		  out.append(" Attendant created");
-		  
+		  RequestDispatcher dispatch = request.getRequestDispatcher("/homePage.jsp");
+		  dispatch.forward(request, response);
 		  
 		  }catch(Exception e) {
 			  

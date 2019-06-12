@@ -3,7 +3,7 @@ package com.pos.account.model;
 import java.math.BigDecimal;
 
 public class SystemAccount {
-
+	 //this class was designed to create a System account for every new attendant/employee .
 	 private BigDecimal accountID;
 	 private BigDecimal actAttendantID;
 	 private String userName;

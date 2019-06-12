@@ -13,7 +13,6 @@ import com.pos.database.Database;
 
 public class AttendantDAO {
 
-
 			public static Attendant createNewAttendant(Attendant attendant) throws Exception {
  
             	     
@@ -52,6 +51,7 @@ public class AttendantDAO {
 				  Attendant attd = new Attendant();
 				    String sql = "SELECT * FROM posv2.attendant "
 				    		+ " WHERE attdt_id = ?";
+				    Database.getMySqlTimeZone();
 				    PreparedStatement preparedStatement  = Database.getConnectedPreparedStatement(sql);
 				    preparedStatement.setBigDecimal(1, attendantID);
 				    ResultSet rs = preparedStatement.executeQuery();
@@ -81,12 +81,13 @@ public class AttendantDAO {
 			   public static List<Attendant> getAllAttendants() throws Exception{
 				   
 				    List<Attendant> getAllWorkers = new ArrayList<Attendant>();
-				   
-				        Statement statement = Database.getDatabaseConnection().createStatement();
+				    
+				    Statement statement = Database.getDatabaseConnection().createStatement();
 				        ResultSet rs = statement.executeQuery("SELECT * FROM posv2.attendant");
 				         while(rs.next())
 				         {
 				        	 Attendant attendant = new Attendant()
+				        	   .setId(rs.getBigDecimal(1))
 				        	   .setfName(rs.getString(2))
 				        	   .setmName(rs.getString(3))
 				        	   .setSurname(rs.getString(4))

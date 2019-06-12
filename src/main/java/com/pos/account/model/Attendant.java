@@ -7,6 +7,7 @@ import java.sql.Date;
 
 
 public class Attendant {
+	//this class was designed to create an attendant/employee using a builder design pattern.
 	
 	 private BigDecimal id;
 	 private String fName;

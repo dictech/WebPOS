@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.util.List;
 
 
@@ -77,4 +78,13 @@ public class Database {
 //		table.setItems(FXCollections.observableArrayList(data));
 //		table.refresh();
 //	}
+	
+	public static void getMySqlTimeZone() throws Exception{
+		
+		  String sql = "SET GLOBAL time_zone = '+8:00'";
+		  Statement stmt = Database.getDatabaseConnection().createStatement();
+		  stmt.executeQuery(sql);
+		  stmt.close();
+	}
+	
 }

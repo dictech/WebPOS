@@ -59,9 +59,9 @@
      aria-expanded="false"
      aria-controls="setupSubSystemList">SYSTEM SETUPS</a>
   	  <div class="list-group list-group-flush collapse" id="setupSubSystemList">
-		  <a href="OrgServlet" class="list-group-item">Shop details</a>
+		  <a href="createShop.jsp" class="list-group-item">Shop details</a>
 		  <a href="#" class="list-group-item">Branch details</a>
-		  <a href="Account" class="list-group-item">Account</a>
+		  <a href="AttendantDetails.jsp" class="list-group-item">Account</a>
 		  <a href="createShop.jsp" class="list-group-item">Organization setup</a>
 		  <a href="" class="list-group-item">Account setup</a>
 		  <a href="#" class="list-group-item">Inventory setup</a>

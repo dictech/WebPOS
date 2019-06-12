@@ -1,12 +1,11 @@
-package com.pos.account.model;
+ package com.pos.account.model;
 
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Time;
 import java.time.LocalDate;
-import java.time.LocalTime;
+
 
 
 import com.pos.database.Database;
@@ -17,7 +16,7 @@ public class SystemAccountDAO {
 	private static PreparedStatement ps;
 	private static ResultSet rs;
 	private static boolean validationCheck;
-	private static final Date date = Date.valueOf(LocalDate.now());    
+	private static Date date = Date.valueOf(LocalDate.now());    
 	  
 
 	public static boolean isValidationCheck() {
@@ -31,8 +30,8 @@ public class SystemAccountDAO {
 	public static void createSystemAccount(SystemAccount systemAccount) throws Exception{
 
 		     
-		     String sql = " INSERT INTO posv2.account (acct_id, acct_attdt_id, acct_username, acct_password)"
-		     		      + " values(?,?,?,?)";
+		        String sql = " INSERT INTO posv2.account (acct_id, acct_attdt_id, acct_username, acct_password)"
+		     		       + " values(?,?,?,?)";
 		     
 		        cnt = Database.getDatabaseConnection();
 		        ps = cnt.prepareStatement(sql);
@@ -48,11 +47,11 @@ public class SystemAccountDAO {
 
 	 public static SystemAccount loginSystemAccount(String userName, String password) throws Exception{
 		     
-		 SystemAccount systemAccount = new SystemAccount();
+		     SystemAccount systemAccount = new SystemAccount();
 	         String sql = "SELECT acct_attdt_id from posv2.account "
 	         		+ " WHERE acct_username = ?"
 	         		+ " and acct_password = ?";
-	         
+	          
 	          ps = Database.getConnectedPreparedStatement(sql);
 	          ps.setString(1, systemAccount.setUserName(userName));
 	          ps.setString(2, systemAccount.setPassword(password));
@@ -64,9 +63,7 @@ public class SystemAccountDAO {
 	        	    
 	        	    Attendant attendant = AttendantDAO.getAttendant(rs.getBigDecimal(1));
 	        	    SystemAccountDAO.setValidationCheck(true);
-	        	    System.out.println(attendant.getId());
-	        	    
-	        	    AttendanceDAO.getAttendance(SystemAccountDAO.date,attendant);
+	        	    AttendanceDAO.getAttendance(date,attendant);
 	        	       
 	          }else {
 	        	   

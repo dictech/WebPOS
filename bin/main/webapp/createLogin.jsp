@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
  pageEncoding="ISO-8859-1"%>
+ <%@ page import="com.pos.account.controller.LoginCtrl" %>
  
  
 <!DOCTYPE html>
@@ -43,20 +44,7 @@
    <div>
    <input type="password" name="loginPassword" class="form-inputs-login" placeholder="Password" required />               
    </div>    
-       
-          <div class="modal" id="myModal">
-          <div class="modal-dialog">
-          <div class="modal-content">
-          <div class="modal-header">
-          <h2 class="modal-title">Incorrect details </h2>
-          </div>
-          <div class="modal-body">
-           <p>Please check your details and try again</p>
-          </div>
-          </div>
-          </div>
-          </div>
-             
+   
    <div>
    <input type="submit" class="submit-login" value="submit" />               
    </div>      

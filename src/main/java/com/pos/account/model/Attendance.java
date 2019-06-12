@@ -9,7 +9,7 @@ import java.sql.Time;
 
 public class Attendance {
 
-	  // An activity that records all the daily attendance of an attendant.
+	  //this class holds An activity that records all the daily attendance of an attendant.
 	  private BigDecimal attenc_ID;
 	  private BigDecimal attenc_attendt_Id;
 	  private String attendcFirstName;
