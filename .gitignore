@@ -1,7 +1,9 @@
-/target/
 pom.properties
 pom.properties.orig
 pom.xml.orig
 MANIFEST.MF
 /.classpath
 /.project
+/.settings
+/target/classes/
+/target/test-classes/
