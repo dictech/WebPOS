@@ -2,39 +2,75 @@ package com.pos.org.controller;
 
 import java.io.IOException;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class OrgServlet
- */
+
+import com.pos.enums.DBOperation;
+import com.pos.org.model.Organization;
+
 public class OrgServlet extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
+	private static DBOperation operation;
+	private static String operationStatus = "NULL_STATUS";
+	private static BigDecimal id = null;
+	private static Organization org= null;
+	private static List<Organization> listOfOrgs = null;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+  
     public OrgServlet() {
-        super();
-        // TODO Auto-generated constructor stub
+    	listOfOrgs =  OrganizationCtrl.viewAllOrganization();	
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+
+		if (request.getParameter("operation") != null) {
+			operation = DBOperation.valueOf(request.getParameter("operation"));
+		}else {
+			operation = DBOperation.READ_ALL;
+		}
+		
+
+		switch (operation) {
+			case CREATE:
+				operationStatus = OrganizationCtrl.createOrganization(request);
+				response.getWriter().write(operationStatus);
+				request.setAttribute("operationStatus", operationStatus);
+				break;
+			case READ:
+				org = OrganizationCtrl.viewOrganization(request);
+				break;
+			case UPDATE:
+				operationStatus = OrganizationCtrl.updateOrganization(request);
+				response.getWriter().write(operationStatus);
+				break;
+			case DELETE:
+				operationStatus = OrganizationCtrl.deleteOrganization(request);
+				response.getWriter().write(operationStatus);
+				break;
+			case READ_ALL:
+				request.setAttribute("orgs", OrganizationCtrl.viewAllOrganization());
+				request.getRequestDispatcher("createShop.jsp").forward(request, response);
+				break;
+		}
+		
+	}
+	
+	
+	
+	
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		doGet(request, response);
 	}
-
 }

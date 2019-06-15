@@ -59,7 +59,8 @@
         <artifactId>jstl</artifactId>
         <version>1.2</version>
     </dependency>
-   
+    
+    
   </dependencies>
   <build>
     <finalName>WEBPOS</finalName>

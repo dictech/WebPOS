@@ -1,3 +1,4 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +20,6 @@
 </head>
 
 <body>
-
   <!-- Navigation -->
   <div id="nav">
     <jsp:include page="/include/common/nav.jsp" />
@@ -73,8 +73,7 @@
 
        <br>
         <div class="tab-content">
-          <div class="tab-pane fade show active" id="org" role="tabpanel" aria-labelledby="OrgTab">
-            
+          <div class="tab-pane fade show active" id="org" role="tabpanel" aria-labelledby="OrgTab">  
                <table class="table">
                   <thead>
                     <tr>
@@ -88,26 +87,29 @@
                           <button type="submit" 
                                   class="btn btn-success btn-sm"
                                   data-toggle="modal"
-                                  data-target="#addOrgModal">
-                                  <span class="glyphicon  glyphicon-star" aria-hidden="true""></span>Add
+                                  data-target="#addOrgModal"
+								  id="addOrgButton">
+                                  <span class="glyphicon  glyphicon-star" aria-hidden="true"></span>Add
                           </button>
                         </div>
                       </th>
                     </tr>
                   </thead>
                   <tbody>
+                  <c:forEach  var="org"  items="${orgs}">
                     <tr>
                       <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>@mdo</td>
+                      <td>${org.name}</td>
+                      <td>${org.email}</td>
+                      <td>${org.phoneNo}</td>
+                      <td>${org.email}</td>
                       <td>
                         <div class="text-right">
                           <button type="submit" 
                                   class="btn btn-primary btn-sm"
                                   data-toggle="modal"
-                                  data-target="#updateOrgModal">
+                                  data-target="#updateOrgModal"
+                                  id="xyz">
                                   <span class="glyphicon glyphicon-search"></span>Update
                           </button>
 
@@ -120,32 +122,7 @@
                         </div>
                       </td>
                     </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                      <td>@mdo</td>
-                       <td>
-                        <div class="text-right">
-                          <button type="submit" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span>Update</button>
-                          <button type="submit" class="btn btn-danger btn-sm"> <span class="glyphicon glyphicon-search"></span> Delete</button>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Larry</td>
-                      <td>the Bird</td>
-                      <td>@twitter</td>
-                      <td>@mdo</td>
-                      <td>
-                        <div class="text-right">
-                          <button type="submit" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span>Update</button>
-                          <button type="submit" class="btn btn-danger btn-sm"> <span class="glyphicon glyphicon-search"></span> Delete</button>
-                        </div>
-                      </td>
-                    </tr>
+                    </c:forEach>
                   </tbody>
                 </table>
            </div>
@@ -161,37 +138,60 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    <form>
+                    <form action="OrgServlet" method="post" id="addOrgForm">
+                      <input type="hidden" id="operation"   value="CREATE" name="operation" />
+                                   
                       <div class="form-group row">
                         <label for="colFormLabel" class="col-sm-3 col-form-label">Org. Name:</label>
                         <div class="col-sm-7">
-                          <input type="email" class="form-control" id="colFormLabel" placeholder="enter Organization name">
+                          <input type="text" class="form-control" id="orgName" placeholder="enter Organization name" name="orgName">
                         </div>
                       </div>
 
                       <div class="form-group row">
                         <label for="colFormLabel" class="col-sm-3 col-form-label">Phone No:</label>
                         <div class="col-sm-4">
-                          <input type="tel" class="form-control" id="colFormLabel" placeholder="enter phone No.">
+                          <input type="tel" class="form-control" id="orgPhoneNo" placeholder="enter phone No." name="orgPhoneNo">
                         </div>
                       </div>
 
                       <div class="form-group row">
                         <label for="colFormLabel" class="col-sm-3 col-form-label">Email:</label>
                         <div class="col-sm-4">
-                          <input type="email" class="form-control" id="colFormLabel" placeholder="enter email">
+                          <input type="email" class="form-control" id="orgEmail" placeholder="enter email" name="orgEmail">
                         </div>
                       </div>
+                      
+                      <div class="form-group row">
+                        <label for="colFormLabel" class="col-sm-3 col-form-label">Logo:</label>
+                        <div class="col-sm-4">
+                          <input type="text" class="form-control" id="orgLogo" placeholder="Upload image" name="orgLogo">
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+	                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	                    <button type="button" 
+	                    		class="btn btn-primary"  
+	                    		name="button" 
+	                    		id="saveOrgButton">Save update</button>
+	                  </div>
                     </form>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                   </div>
                 </div>
               </div>
             </div>
             <!-- addOrgModal Modal -->
+            
+            
+            <!-- Status Modal --> 
+            <div class="modal fade bd-example-modal-sm" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-sm">
+			    <div class="modal-content">
+			     <div class="modal-body" id="operationStatus"></div>
+			    </div>
+			  </div>
+			</div>
+			<!-- Status Modal end --> 
 
             <!-- updateOrgModal Modal -->
             <div class="modal fade" id="updateOrgModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -204,32 +204,45 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    <form>
+                    <form action="OrgServlet" method="post">
+                      <input type="hidden" id="colFormLabel" name="operation" value="UPDATE">
                       <div class="form-group row">
                         <label for="colFormLabel" class="col-sm-3 col-form-label">Org. Name:</label>
                         <div class="col-sm-7">
-                          <input type="email" class="form-control" id="colFormLabel" placeholder="enter Organization name">
+                          <input type="text" class="form-control" id="colFormLabel" placeholder="enter Organization name" name="orgName">
                         </div>
                       </div>
 
                       <div class="form-group row">
                         <label for="colFormLabel" class="col-sm-3 col-form-label">Phone No:</label>
                         <div class="col-sm-4">
-                          <input type="tel" class="form-control" id="colFormLabel" placeholder="enter phone No.">
+                          <input type="tel" class="form-control" id="colFormLabel" placeholder="enter phone No." name="orgPhoneNo">
                         </div>
                       </div>
 
                       <div class="form-group row">
                         <label for="colFormLabel" class="col-sm-3 col-form-label">Email:</label>
                         <div class="col-sm-4">
-                          <input type="email" class="form-control" id="colFormLabel" placeholder="enter email">
+                          <input type="email" class="form-control" id="colFormLabel" placeholder="enter email" name="orgEmail">
                         </div>
                       </div>
+                      
+                       <div class="form-group row">
+                        <label for="colFormLabel" class="col-sm-3 col-form-label">Logo :</label>
+                        <div class="col-sm-4">
+                          <input type="text" class="form-control" id="colFormLabel" placeholder="update image" name="orgLogo">
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+	                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	                    <button type="submit" 
+	                    		class="btn btn-primary"  
+	                    		name="button" 
+	                    		value="UPDATE" 
+	                    		data-toggle="modal"
+                                data-target="statusModal">Save update</button>
+	                  </div>
                     </form>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                   </div>
                 </div>
               </div>
@@ -273,7 +286,7 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary" name="button" value="DELETE">Save changes</button>
                   </div>
                 </div>
               </div>
@@ -301,7 +314,7 @@
                                   class="btn btn-success btn-sm"
                                   data-toggle="modal"
                                   data-target="#addBranchModal">
-                                  <span class="glyphicon  glyphicon-star" aria-hidden="true""></span>Add
+                                  <span class="glyphicon  glyphicon-star" aria-hidden="true"></span>Add
                           </button>
                         </div>
                       </th>
@@ -472,14 +485,13 @@
             </div>
             <!-- addBranchModal Modal -->
 
-
-
       </div>
       <!-- /.col-lg-9 -->
 
     </div>
     <!-- /.row -->
 
+  </div>
   </div>
   <!-- /.container -->
 
@@ -493,6 +505,11 @@
   <script src="bootstrap-4.3.1/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
-
+<script>
+    if ( window.history.replaceState ) {
+      window.history.replaceState( null, null, window.location.href );
+    }
+</script>
+<script type="text/javascript" src="js/test.js"></script>
 </html>
 
